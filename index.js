@@ -9,7 +9,6 @@ require("dotenv").config();
 
 const app = express();
 
-const Recep = require("./model/reception");
 const Docrecep = require("./model/docreg");
 const Secret = "jwtsecret";
 const patient = require("./model/patient");
@@ -70,6 +69,7 @@ app.get("/sql", async (req, res) => {
 
 const verifyJwt = (req, res, next) => {
   const token = req.headers["x-access-token"];
+  console.log("Came for verification");
   if (!token) {
     res.send("Sorry bro no token");
   } else {
