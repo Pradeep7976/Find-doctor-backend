@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
+require("dotenv").config();
 
 const app = express();
 
@@ -85,7 +86,7 @@ const verifyJwt = (req, res, next) => {
   }
 };
 app.get("/", (req, res) => {
-  res.send("Server is not crashed");
+  res.send("Server is not crashed this is msg u have written");
 });
 app.get("/isUserAuth", verifyJwt, (req, res) => {
   res.json({ auth: true });
@@ -556,4 +557,5 @@ app.get("/upload", (req, res) => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 app.listen(7000 || process.env.PORT, function () {
   console.log(`Server started on port 7000 `);
+  console.log(`Server started on port ${process.env.PORT} `);
 });

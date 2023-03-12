@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 
+require("dotenv").config();
+
 const app = express();
 
 const Recep = require("./model/reception");
